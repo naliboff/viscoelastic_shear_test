@@ -23,7 +23,7 @@ time_step_start = 0
 time_step_final = 100
 
 # Set timestep
-time_step = 1.e2
+time_step = 1.e1
 
 # Total number of .pvtu files
 number_time_steps = time_step_final - time_step_start + 1
@@ -43,6 +43,8 @@ for t in range(time_step_start,time_step_final+1):
         pvtu_number = '000' + str(t)
     elif t>=100 & t<1000:
         pvtu_number = '00' + str(t)
+    elif t>=10000:
+        pvtu_number = '0' + str(t)
 
     # Load vtu data (pvtu directs to vtu files)
     reader = vtk.vtkXMLPUnstructuredGridReader()
@@ -137,5 +139,5 @@ plt.close()
 time_step_str = str(int(np.log10(time_step)))
 
 # Save results to a file
-np.savetxt('shear_test_2D-1e' + time_step_str  + '.txt',time_sxy,fmt='%3.2e %8.7e %8.7e3',header="Time  Numerical  Analytical")
+np.savetxt(data_directory + model_name  + '.txt',time_sxy,fmt='%3.2e %8.7e %8.7e3',header="Time  Numerical  Analytical")
 

@@ -20,13 +20,13 @@ subsection Solver parameters
   end
 end
 
-# Model geometry (100x100 km, 2 km spacing)
+# Model geometry (100x100 km, 1 km spacing)
 subsection Geometry model
   set Model name = box
 
   subsection Box
-    set X repetitions = 50
-    set Y repetitions = 50
+    set X repetitions = 100
+    set Y repetitions = 100
     set X extent      = 100e3
     set Y extent      = 100e3
   end
@@ -79,7 +79,7 @@ end
 
 # Composition boundary conditions
 subsection Boundary composition model
-  set Fixed composition boundary indicators   = bottom, top, left, right
+  set Fixed composition boundary indicators   = 
   set List of model names = initial composition
 end
 
